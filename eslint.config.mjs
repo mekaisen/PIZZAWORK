@@ -11,7 +11,8 @@ export default eslint(
   {
     rules: {
       'node/prefer-global/process': ['error', 'always'],
-      'siberiacancode-react/prop-types': 'off'
+      'siberiacancode-react/prop-types': 'off',
+      'eslint linebreak-style': ['error', 'windows']
     }
   }
 );
