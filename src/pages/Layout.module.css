@@ -48,7 +48,7 @@
   &::before{
     content: "";
     height: 1px;
-    width: 100vw;
+    width: 100%;
     position: absolute;
     left: 0;
     bottom: 0;

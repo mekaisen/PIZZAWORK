@@ -3,7 +3,7 @@ import { useEffect } from "react"
 const Main = ()=>{
   useEffect(()=>{
     console.log('@@@ join')
-    fetch('https://shift-backend.onrender.com/api#/components/schemas')
+    fetch('https://shift-backend.onrender.com/pizza/catalog')
     .then((res)=>res.json())
     .then((data)=>console.log(data))
     .catch(error=>{
