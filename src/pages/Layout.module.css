@@ -70,14 +70,33 @@
 .links{
   gap: 32px
 }
+.link{
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  &:hover{
+    color:#f4511e;
+    svg path{
+      fill: #f4511e
+    }
+  }
+}
+
 .logo{
   display: flex;
   align-items: center;
   font-weight: 600;
   font-size: 13px;
   color: #f4511e;
-  & div:first-child{
-    margin-bottom: 2px;
+
+}
+.logo_text{
+  
+  & div{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    height: 13px;
   }
 }
 .logo_circlce{
@@ -85,4 +104,7 @@
   height: 31px;
   background-color: #f4511e;
   border-radius: 100%;
+}
+.main{
+  margin-bottom: 50px;
 }

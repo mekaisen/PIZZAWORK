@@ -1,0 +1,130 @@
+.pizzaModal{
+  width:806px ;
+  max-width: 806px;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 64px 64px 24px 64px;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(auto, 220px) 1fr;
+  gap: 32px;
+}
+.closebtn{
+  position: absolute;
+  top: 16px;
+  right: 24px;
+}
+.img{
+  max-width: 220px;
+  max-height: 220px;
+}
+.pizza_titleL{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 133%;
+  color: #292929;
+  margin-bottom: 8px;
+}
+
+.pizza_subtitle{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: #535353;
+  margin-bottom: 8px;
+}
+.pizza_description{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #535353;
+  margin-bottom: 24px;
+}
+.pizza_sizes{
+  border-radius: 16px;
+  padding: 2px;
+  background: #bdbdbd;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  
+  margin-bottom: 8px;
+}
+.sizective{
+  background: #fff
+}
+.pizza_choose{
+ 
+  border-radius: 14px;
+  padding: 10px 0
+}
+.doughactive{
+  background: #fff
+}
+.content{
+  height: 476px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pizza_titleM{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #292929;
+  margin-top: 24px;
+}
+.pizza_buybnt{
+  border-radius: 16px;
+  padding: 16px 32px;
+  background: #f4511e;
+  color: #fff;
+}
+.buyarea{
+  overflow-y: scroll;
+  padding-inline: 8px;
+}
+
+.buyarea::-webkit-scrollbar {
+	width: 9px;
+
+}	
+.buyarea::-webkit-scrollbar-button {
+	background: none
+}
+.buyarea::-webkit-scrollbar-track-piece {
+	background: none
+}
+.buyarea::-webkit-scrollbar-thumb {
+    background: #CED2DA;
+    border-radius: 10px;
+}
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 11px;
+}
+.pizza_topping{
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 4px 12px 0 rgba(26, 26, 30, 0.15);
+  background: #fff;
+}
+.topping_title{
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  text-align: center;
+  color: #292929;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+.topping_price{
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  text-align: center;
+  color: #292929;
+}
+.active_toping{
+  outline: 2px solid #f4511e;
+}

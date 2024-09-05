@@ -1,17 +1,21 @@
-import { Link, Outlet } from "@tanstack/react-router";
+import { Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+import clsx from 'clsx';
 
-import clsx from "clsx";
+import { AuthIcon } from '../assets/icons/AuthIcon';
+import { ClockIcon } from '../assets/icons/ClockIcon';
+import { OrderIcon } from '../assets/icons/OrderIcon';
+import { ProfileIcon } from '../assets/icons/ProfileIcon';
 
-import styles from './Layout.module.css'
+import styles from './Layout.module.css';
 
 const Layout = () => {
   return (
     <div className={clsx(styles.container)}>
       <header className={clsx(styles.header, styles['full-width'])}>
-        <nav className={clsx(styles.navbar,styles.flex )}>
-          <Link to="/" className={clsx(styles.logo)}>
-            <div>
+        <nav className={clsx(styles.navbar, styles.flex)}>
+          <Link to='/' className={clsx(styles.logo)}>
+            <div className={clsx(styles.logo_text)}>
               <div>ШИФТ</div>
               <div>PIZZA</div>
             </div>
@@ -19,21 +23,41 @@ const Layout = () => {
           </Link>
           <div className={clsx(styles['links-container'], styles.flex)}>
             <ul className={clsx(styles.flex, styles.links)}>
-              <li><Link to="/profile" className={clsx(styles.link)}>Профиль</Link></li>
-              <li><Link to="/orders" className={clsx(styles.link)}>Заказы</Link></li>
+              <li>
+                <Link to='/profile' className={clsx(styles.link)}>
+                  <ProfileIcon />
+                  <span>Профиль</span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/orders' className={clsx(styles.link)}>
+                  <ClockIcon />
+                  <span>Заказы</span>
+                </Link>
+              </li>
             </ul>
             <ul className={clsx(styles.flex, styles.links)}>
-              <li><Link to="/cart" className={clsx(styles.link)}>Корзина</Link></li>
-              <li><Link to="/auth" className={clsx(styles.link)}>Войти / Выйти</Link></li>
+              <li>
+                <Link to='/cart' className={clsx(styles.link)}>
+                  <OrderIcon color='#f4511e' />
+                  <span>Корзина</span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/auth' className={clsx(styles.link)}>
+                  <AuthIcon />
+                  <span>Войти / Выйти</span>
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>
       </header>
       <main className={clsx(styles.main)}> <Outlet /> </main>
-      <footer className={clsx(styles.footer)}>footer</footer>
+
       <TanStackRouterDevtools></TanStackRouterDevtools>
     </div>
 
   );
 };
-export {Layout}
+export { Layout };

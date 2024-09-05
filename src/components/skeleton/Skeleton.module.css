@@ -1,0 +1,16 @@
+.animatedpulse{
+  animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite
+}
+
+@keyframes pulse {
+  50% {
+      opacity: .5
+  }
+}
+
+.bgmuted {
+  background-color: hsl(240 3.7% 15.9%);
+}
+.rounded{
+  border-radius: calc(10px + 4px);
+}

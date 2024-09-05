@@ -1,6 +1,8 @@
 import { createRoot } from 'react-dom/client';
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 
+import { PizzaProvider } from './utils/context/Pizza';
+import { PizzaStoreProvider } from './utils/context/PizzaStore';
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
 
@@ -18,5 +20,9 @@ declare module '@tanstack/react-router' {
 
 createRoot(document.getElementById('root')!).render(
 
-  <RouterProvider router={router} />
+  <PizzaStoreProvider defaultProfile={[]}>
+    <PizzaProvider defaultProfile={[]}>
+      <RouterProvider router={router} />
+    </PizzaProvider>
+  </PizzaStoreProvider>
 );

@@ -1,0 +1,55 @@
+.container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 48px;
+  column-gap: 32px;
+  margin-top: 48px;
+}
+
+.pizza_card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  gap: 24px;
+}
+.pizza_img{
+
+  min-height: 220px;
+  max-width: 220px;
+}
+.pizza_info{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1 1 100%;
+  justify-content: space-between;
+  gap: 32px;
+}
+.pizza_title{
+  margin-bottom: 8px;
+}
+.pizza_cost{
+  margin-bottom: 24px;
+}
+.pizza_title, .pizza_cost{
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #292929;
+}
+.pizza_subtitle{
+  line-height: 150%;
+  color: #535353; 
+}
+.pizza_button{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: #fff;
+  background: #f4511e;
+  padding: 16px 0;
+  border-radius: 16px;
+  width: 100%;
+
+}

@@ -12,7 +12,10 @@ export default eslint(
     rules: {
       'node/prefer-global/process': ['error', 'always'],
       'siberiacancode-react/prop-types': 'off',
-      'eslint linebreak-style': ['error', 'windows']
+      'style/linebreak-style': 'off',
+      'react/no-duplicate-key': 'off',
+      'siberiacancode-react/display-name': 'off'
+
     }
   }
 );
