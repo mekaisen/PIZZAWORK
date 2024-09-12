@@ -185,3 +185,19 @@ interface PizzaCart extends SelectedPizza {
   count: number
   uid: string
 }
+type ApiRequestConfig = import('axios').AxiosRequestConfig;
+type RequestConfig<Params = undefined> = Params extends undefined
+  ? { config?: ApiRequestConfig }
+  : { params: Params; config?: ApiRequestConfig };
+
+interface OtpResponse {
+  success:	boolean
+  reason?:	string
+  retryDelay:	number
+}
+interface SignInDto {
+  phone: string
+
+  code: number
+
+}
