@@ -3,27 +3,32 @@ import { useState } from 'react';
 import { SignInForm } from './components/SignInForm/SignInForm';
 import { SignUpForm } from './components/SignUpForm/SignUpForm';
 
+export interface IPhoneAndRetry {
+  phone: string
+  retry?: number
+}
+
 const Auth = () => {
   const [stage, setStage] = useState('signUp');
-  const [phone, setPhone] = useState('');
+  const [phoneAndRetry, setPhoneAndRetry] = useState<IPhoneAndRetry>({ phone: '', retry: undefined });
   const handleSetStage = (stage: string) => {
     setStage(stage);
   };
-  const handleSetPhone = (phone: string) => {
-    setPhone(phone);
+  const handleSetPhoneAndRetry = (data: IPhoneAndRetry) => {
+    setPhoneAndRetry(data);
   };
   return (
     stage === 'signUp' ? (
       <SignUpForm
         handleSetStage={handleSetStage}
-        handleSetPhone={handleSetPhone}
-        phone={phone}
+        handleSetPhoneAndRetry={handleSetPhoneAndRetry}
+        phoneAndRetry={phoneAndRetry}
       />
     ) : (
       <SignInForm
         handleSetStage={handleSetStage}
-        handleSetPhone={handleSetPhone}
-        phone={phone}
+        handleSetPhoneAndRetry={handleSetPhoneAndRetry}
+        phoneAndRetry={phoneAndRetry}
       />
     )
   );

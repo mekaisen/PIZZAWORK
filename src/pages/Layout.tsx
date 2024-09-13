@@ -6,10 +6,15 @@ import { AuthIcon } from '../assets/icons/AuthIcon';
 import { ClockIcon } from '../assets/icons/ClockIcon';
 import { OrderIcon } from '../assets/icons/OrderIcon';
 import { ProfileIcon } from '../assets/icons/ProfileIcon';
+import { useProfile } from '../utils/context/Profile';
+import { useSession } from '../utils/context/Session';
 
 import styles from './Layout.module.css';
 
 const Layout = () => {
+  const { session, setSession } = useSession();
+  const { setProfile } = useProfile();
+
   return (
     <div className={clsx(styles.container)}>
       <header className={clsx(styles.header, styles['full-width'])}>
@@ -44,10 +49,25 @@ const Layout = () => {
                 </Link>
               </li>
               <li>
-                <Link to='/auth' className={clsx(styles.link)}>
-                  <AuthIcon />
-                  <span>Войти / Выйти</span>
-                </Link>
+                {!session ? (
+                  <Link to='/auth' className={clsx(styles.link)}>
+                    <AuthIcon />
+                    <span>Войти</span>
+                  </Link>
+                ) : (
+                  <Link
+                    to='/'
+                    onClick={() => {
+                      setSession(false);
+                      setProfile(undefined!);
+                      localStorage.removeItem('accessToken');
+                    }}
+                    className={clsx(styles.link)}
+                  >
+                    <AuthIcon />
+                    <span>Выйти</span>
+                  </Link>
+                )}
               </li>
             </ul>
           </div>

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 
 import { PizzaStoreContext } from './PizzaStoreContext';
 
-interface PizzaStoreProviderProps {
+export interface PizzaStoreProviderProps {
   children: React.ReactNode
   defaultProfile?: Pizza[]
 }

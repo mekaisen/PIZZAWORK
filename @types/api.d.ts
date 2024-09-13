@@ -201,3 +201,16 @@ interface SignInDto {
   code: number
 
 }
+interface User {
+  phone:	string
+  firstname?:	string
+  middlename?:	string
+  lastname?:	string
+  email?: string
+  city?: string
+}
+interface SessionResponse {
+  success: boolean
+  reason?: string
+  user: User
+}
