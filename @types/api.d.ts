@@ -202,15 +202,27 @@ interface SignInDto {
 
 }
 interface User {
-  phone:	string
-  firstname?:	string
-  middlename?:	string
-  lastname?:	string
-  email?: string
-  city?: string
+  profile: {
+    email?: string;
+    city?: string;
+    lastname?: string;
+    middlename?: string;
+    firstname?: string;
+  }
+  phone: string;
+}
+interface UserResponse {
+
+  email?: string;
+  city?: string;
+  lastname?: string;
+  middlename?: string;
+  firstname?: string;
+
+  phone: string;
 }
 interface SessionResponse {
   success: boolean
   reason?: string
-  user: User
+  user: UserResponse
 }

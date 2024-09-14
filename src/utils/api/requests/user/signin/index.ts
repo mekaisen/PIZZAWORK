@@ -4,6 +4,6 @@ export interface PostUserSignInParams {
   phone: string;
   code: number
 }
-export type PostOtpPhoneRequestConfig = RequestConfig<PostUserSignInParams>;
+export type PostUserSignInRequestConfig = RequestConfig<PostUserSignInParams>;
 
-export const postUserSignIn = ({ params, config }: PostOtpPhoneRequestConfig) => api.post<SignInResponse>('/users/signin', params, config);
+export const postUserSignIn = ({ params, config }: PostUserSignInRequestConfig) => api.post<SignInResponse>('/users/signin', params, config);

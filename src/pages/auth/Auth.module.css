@@ -65,3 +65,9 @@
   user-select: none;
   cursor: default;
 }
+.retruOn{
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: #344051;
+}

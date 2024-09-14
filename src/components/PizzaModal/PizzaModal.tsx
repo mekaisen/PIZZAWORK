@@ -102,7 +102,6 @@ const PizzaModal = ({ pizza, onClose }: PizzaModalProps) => {
       });
     }
   }, []);
-  console.log('@@@rerender');
   const pizzaTotalCost =
    +selectPizza.doughs.price
    + selectPizza.size.price
@@ -184,7 +183,7 @@ const PizzaModal = ({ pizza, onClose }: PizzaModalProps) => {
           !pizza.uid ? (
             <button
               onClick={() => { onClickToCart();
-                console.log(pizza.uid); }}
+              }}
               type='button'
               className={styles.pizza_buybnt}
             >Добавить в корзину {pizzaTotalCost} Р

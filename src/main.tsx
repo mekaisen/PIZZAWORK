@@ -28,7 +28,17 @@ declare module '@tanstack/react-router' {
   const token = localStorage.getItem('accessToken');
   if (token) {
     const getProfileQuery = await getUserSession();
-    providersProps.profile.defaultProfile = getProfileQuery.data.user;
+    const profile = {
+      profile: {
+        email: getProfileQuery.data.user.email,
+        city: getProfileQuery.data.user.city,
+        lastname: getProfileQuery.data.user.lastname,
+        middlename: getProfileQuery.data.user.middlename,
+        firstname: getProfileQuery.data.user.firstname
+      },
+      phone: getProfileQuery.data.user.phone
+    };
+    providersProps.profile.defaultProfile = profile;
     providersProps.session.defaultValue = !!getProfileQuery.data;
   }
   createRoot(document.getElementById('root')!).render(
