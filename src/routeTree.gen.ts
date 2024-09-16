@@ -12,26 +12,16 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as ProfileImport } from './routes/profile'
-import { Route as PaymentImport } from './routes/payment'
-import { Route as CartImport } from './routes/cart'
 import { Route as AuthImport } from './routes/auth'
 import { Route as IndexImport } from './routes/index'
 import { Route as OrdersIndexImport } from './routes/orders/index'
+import { Route as CartsIndexImport } from './routes/carts/index'
+import { Route as CartsPaymentsImport } from './routes/carts/payments'
 
 // Create/Update Routes
 
 const ProfileRoute = ProfileImport.update({
   path: '/profile',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const PaymentRoute = PaymentImport.update({
-  path: '/payment',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const CartRoute = CartImport.update({
-  path: '/cart',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -47,6 +37,16 @@ const IndexRoute = IndexImport.update({
 
 const OrdersIndexRoute = OrdersIndexImport.update({
   path: '/orders/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CartsIndexRoute = CartsIndexImport.update({
+  path: '/carts/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const CartsPaymentsRoute = CartsPaymentsImport.update({
+  path: '/carts/payments',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -68,25 +68,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthImport
       parentRoute: typeof rootRoute
     }
-    '/cart': {
-      id: '/cart'
-      path: '/cart'
-      fullPath: '/cart'
-      preLoaderRoute: typeof CartImport
-      parentRoute: typeof rootRoute
-    }
-    '/payment': {
-      id: '/payment'
-      path: '/payment'
-      fullPath: '/payment'
-      preLoaderRoute: typeof PaymentImport
-      parentRoute: typeof rootRoute
-    }
     '/profile': {
       id: '/profile'
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileImport
+      parentRoute: typeof rootRoute
+    }
+    '/carts/payments': {
+      id: '/carts/payments'
+      path: '/carts/payments'
+      fullPath: '/carts/payments'
+      preLoaderRoute: typeof CartsPaymentsImport
+      parentRoute: typeof rootRoute
+    }
+    '/carts/': {
+      id: '/carts/'
+      path: '/carts'
+      fullPath: '/carts'
+      preLoaderRoute: typeof CartsIndexImport
       parentRoute: typeof rootRoute
     }
     '/orders/': {
@@ -104,9 +104,9 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren({
   IndexRoute,
   AuthRoute,
-  CartRoute,
-  PaymentRoute,
   ProfileRoute,
+  CartsPaymentsRoute,
+  CartsIndexRoute,
   OrdersIndexRoute,
 })
 
@@ -120,9 +120,9 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/",
         "/auth",
-        "/cart",
-        "/payment",
         "/profile",
+        "/carts/payments",
+        "/carts/",
         "/orders/"
       ]
     },
@@ -132,14 +132,14 @@ export const routeTree = rootRoute.addChildren({
     "/auth": {
       "filePath": "auth.tsx"
     },
-    "/cart": {
-      "filePath": "cart.tsx"
-    },
-    "/payment": {
-      "filePath": "payment.tsx"
-    },
     "/profile": {
       "filePath": "profile.tsx"
+    },
+    "/carts/payments": {
+      "filePath": "carts/payments.tsx"
+    },
+    "/carts/": {
+      "filePath": "carts/index.tsx"
     },
     "/orders/": {
       "filePath": "orders/index.tsx"

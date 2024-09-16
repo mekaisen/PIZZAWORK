@@ -43,7 +43,7 @@ const Layout = () => {
             </ul>
             <ul className={clsx(styles.flex, styles.links)}>
               <li>
-                <Link to='/cart' className={clsx(styles.link)}>
+                <Link to='/carts' className={clsx(styles.link)}>
                   <OrderIcon color='#f4511e' />
                   <span>Корзина</span>
                 </Link>

@@ -111,7 +111,7 @@ const Cart = () => {
       </div>
       <div className={clsx(styles.flexbottom)}>
         <div className={clsx(styles.totalcost)}>Стоимость заказа: {pizzaTotalCost} Р</div>
-        <Link className={clsx(styles.makeoffer)} to='/payment'>Оформить заказ</Link>
+        <Link className={clsx(styles.makeoffer)} disabled={(!pizzasStore)} to='/carts/payments'>Оформить заказ</Link>
 
       </div>
     </>
