@@ -36,6 +36,7 @@ interface Pizza {
   isNew:	boolean
   isHit:	boolean
   img:	string
+  uid?: string
 }
 type PizzaIngredientEnum =
   | 'PINEAPPLE'
