@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import { ModalPizza } from '../../components/Modal/Pizza';
+import { Modal } from '../../components/Modal/Modal';
 import { PizzaModal } from '../../components/PizzaModal/PizzaModal';
 import { BASE_URL } from '../../utils';
 
@@ -39,7 +39,7 @@ const Main = () => {
           </PizzaCard>
         ))}
       </div>
-      {state.isModal.isModalVisible && <ModalPizza onClose={onClick.onClosePizza} className='gelo'><PizzaModal pizza={currentPizza} onClose={onClick.onClosePizza} /></ModalPizza>}
+      {state.isModal.isModalVisible && <Modal onClose={onClick.onClosePizza} className='gelo'><PizzaModal pizza={currentPizza} onClose={onClick.onClosePizza} /></Modal>}
     </>
   );
 };

@@ -1,13 +1,16 @@
 import { useNavigate } from '@tanstack/react-router';
 import clsx from 'clsx';
 
+import { Modal } from '../../components/Modal/Modal';
+
+import { PaymentModal } from './components/PaymentModal';
 import { usePayment } from './hooks/usePayment';
 
 import styles from './Payment.module.css';
 
 const Payment = () => {
   const navigate = useNavigate();
-  const { state, onSubmit, form } = usePayment();
+  const { state, onSubmit, form, onClose } = usePayment();
   if (state.toDebitStep) {
     return (
       <div className={clsx(styles.formContainer)}>
@@ -21,6 +24,12 @@ const Payment = () => {
           <input id='expireDate' placeholder='expireDate'className={clsx(styles.input)} type='text' {...form.debitForm.register('expireDate', { required: true })} />
           <button className={clsx(styles.btn)} type='submit'>Продолжить</button>
         </form>
+        {
+          state.isModalVisible && (
+            <Modal className='' onClose={onClose.onClose}>
+              <PaymentModal adress={state.adress} onClose={onClose.onClose}></PaymentModal>
+            </Modal>
+          )}
       </div>
     );
   }

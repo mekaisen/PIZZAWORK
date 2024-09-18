@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import clsx from 'clsx';
 
-import { ModalPizza } from '../../components/Modal/Pizza';
+import { Modal } from '../../components/Modal/Modal';
 import { BASE_URL, CM_MAP, DOUGH_MAP, SIZE_MAP, TOPPING_MAP } from '../../utils';
 import { usePizzas } from '../../utils/context/Pizza';
 import { usePizzaStore } from '../../utils/context/PizzaStore';
@@ -107,7 +107,7 @@ const Cart = () => {
           </PizzaCard>
         ))}
 
-        {currentPizza && isModalVisible && <ModalPizza onClose={onCloseModal} className='gelo'><PizzaModal pizza={{ ...pizzasStore.filter((i) => i.id === currentPizza.pizzaId)[0], uid: currentPizza.uid } as Pizza} onClose={onCloseModal} /></ModalPizza>}
+        {currentPizza && isModalVisible && <Modal onClose={onCloseModal} className='gelo'><PizzaModal pizza={{ ...pizzasStore.filter((i) => i.id === currentPizza.pizzaId)[0], uid: currentPizza.uid } as Pizza} onClose={onCloseModal} /></Modal>}
       </div>
       <div className={clsx(styles.flexbottom)}>
         <div className={clsx(styles.totalcost)}>Стоимость заказа: {pizzaTotalCost} Р</div>

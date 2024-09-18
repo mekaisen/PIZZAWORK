@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { redirect, useNavigate } from '@tanstack/react-router';
+import { useNavigate } from '@tanstack/react-router';
 
 import { postUserSignIn } from '../../../../../utils/api/requests/user/signin';
 import { useProfile } from '../../../../../utils/context/Profile';

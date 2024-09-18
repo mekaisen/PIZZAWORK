@@ -6,12 +6,21 @@ import type { PostPizzasPaymentParams } from '../../../utils/api/requests/pizza/
 import { postPizzasPayment } from '../../../utils/api/requests/pizza/payment';
 import { usePizzas } from '../../../utils/context/Pizza';
 import { useProfile } from '../../../utils/context/Profile';
+import type { IAdress } from '../components/PaymentModal';
 
 const usePayment = () => {
   const { profile } = useProfile();
-  const { pizzas } = usePizzas();
   const navigate = useNavigate();
+  const { pizzas, setPizzas } = usePizzas();
   const [toDebitStep, setToDebitStep] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [adress, setAdress] = useState<IAdress>({
+    apartment: '',
+    comment: '',
+    house: '',
+    street: '',
+    city: ''
+  });
   const paymentForm = useForm({ defaultValues: {
     lastname: profile?.profile?.lastname || '',
     middlename: profile?.profile?.middlename || '',
@@ -34,6 +43,22 @@ const usePayment = () => {
         throw error;
       }
     }
+  };
+  const toLocalStorage = () => {
+    const localPizza = localStorage.getItem('pizza_orders');
+    if (!localPizza) {
+      localStorage.setItem('pizza_orders', JSON.stringify(pizzas));
+      return;
+    }
+    const pizzaoe = JSON.parse(localPizza!);
+    const newLocalPizza = [...pizzas, ...pizzaoe];
+    localStorage.setItem('pizza_orders', JSON.stringify(newLocalPizza));
+  };
+  const onClose = () => {
+    setIsModalVisible(false);
+    toLocalStorage();
+    setPizzas([]);
+    navigate({ to: '/' });
   };
   const onSubmitDebit = debitForm.handleSubmit(async () => {
     try {
@@ -65,8 +90,16 @@ const usePayment = () => {
           ...valuesDebit
         }
       };
-      const response = await makePayment(params);
-      navigate({ to: '/' });
+      const paymentResponse = await makePayment(params);
+      setAdress({
+        apartment: paymentResponse?.data.order.receiverAddress.apartament,
+        comment: paymentResponse?.data.order.receiverAddress.comment,
+        house: paymentResponse?.data.order.receiverAddress.house,
+        street: paymentResponse?.data.order.receiverAddress.street,
+        city: valuesPayment.city
+      });
+
+      setIsModalVisible(true);
     } catch (error) {
       if (error instanceof Error) {
         console.log(error);
@@ -78,8 +111,9 @@ const usePayment = () => {
     setToDebitStep(true);
   });
   return {
+    onClose: { onClose },
     onSubmit: { onSubmitDebit, onSubmitProfile },
-    state: { toDebitStep },
+    state: { toDebitStep, isModalVisible, adress },
     form: { debitForm, paymentForm }
   };
 };

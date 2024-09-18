@@ -3,7 +3,7 @@
 import { createPortal } from 'react-dom';
 import clsx from 'clsx';
 
-import styles from './Pizza.module.css';
+import styles from './Modal.module.css';
 
 interface ModalPizzaProps {
   className: string
@@ -11,7 +11,7 @@ interface ModalPizzaProps {
   onClose: () => void
 }
 
-const ModalPizza = ({ className, children, onClose }: ModalPizzaProps) =>
+const Modal = ({ className, children, onClose }: ModalPizzaProps) =>
   (createPortal(
     <>
       <div className={clsx(styles.modal)} onClick={() => onClose()}></div>
@@ -20,4 +20,4 @@ const ModalPizza = ({ className, children, onClose }: ModalPizzaProps) =>
     document.body
   ));
 ;
-export { ModalPizza };
+export { Modal };

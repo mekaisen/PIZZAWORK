@@ -14,7 +14,8 @@ export default eslint(
       'siberiacancode-react/prop-types': 'off',
       'style/linebreak-style': 'off',
       'react/no-duplicate-key': 'off',
-      'siberiacancode-react/display-name': 'off'
+      'siberiacancode-react/display-name': 'off',
+      'eslint-comments/no-unlimited-disable': 'off'
 
     }
   }

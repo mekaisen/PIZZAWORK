@@ -1,0 +1,59 @@
+.paymentModalContainer{
+  padding: 52px 72px 72px;
+  width: 500px;
+  min-height: 522px;
+  background: #fff;
+  border-radius: 24px;
+  position: relative;
+}
+.img{
+  display:  flex;
+  justify-content: center ;
+  margin-bottom: 36px;
+}
+.title{
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 133%;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.text{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+.litleText{
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 133%;
+  color: #637083;
+}
+.tip{
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: #97a1af;
+  margin-bottom: 24px;
+}
+.btn{
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #344051;
+  margin: 0 auto;
+}
+.close{
+  position: absolute;
+  top: 12px;
+  right: 24px;
+}
+.field{
+  &:last-of-type{
+    margin-bottom: 16px;
+  }
+}

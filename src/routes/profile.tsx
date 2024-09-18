@@ -1,8 +1,7 @@
-import { createFileRoute, redirect } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 
 import { Profile } from '../pages/profile/Profile';
 import { ROUTES } from '../utils';
-import { getUserSession } from '../utils/api/requests/user/session';
 
 // const getProfile = async () => {
 //   try {
